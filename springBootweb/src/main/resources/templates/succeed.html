@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Thymeleaf succssed!</h1>
+<a th:href="${baidu}" th:class="${hello}" th:text="${hello}" th:alt="${list.size()}">实际信息</a>
+<div th:text="${person.toString()}">hhrrr</div>
+<div th:text="${person.getDesc('当事人')}"></div>
+<div th:text="${#strings.length(person.getAge())}"></div>
+<div th:object="${person}">
+    <p th:text="*{name}"></p>
+    <p th:text="*{age}"></p>
+    <p th:text="*{getAge()}"></p>
+</div>
+<a th:href="@{/baidu/com(personname=${person.name})}">百度</a>
+<table>
+    <tr th:each="bs : ${list}">
+        <td th:text="${bs}"></td>
+    </tr>
+</table>
+<p th:each="item:${list}">[[${item}]]</p>
+</body>
+</html>
